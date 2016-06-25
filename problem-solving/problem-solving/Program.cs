@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace problem_solving
 {
@@ -111,6 +109,13 @@ namespace problem_solving
             // return whichever value is nearest to 21 without going over. 
             // Return 0 if they both go over.
             return 0;
+        }
+
+        public static Dictionary<String, int> WordCount(IEnumerable<String> arr)
+        {
+            // Given an array of Strings, 
+            // return a dictionary keyed on the string with the count of how many times each string appears in the array
+            return null;
         }
     }
 }

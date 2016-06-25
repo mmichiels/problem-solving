@@ -1,6 +1,8 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using problem_solving;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace UnitTestProject1
 {
@@ -223,6 +225,24 @@ namespace UnitTestProject1
         public void Test_BlackJack(int c1, int c2, int result)
         {
             Assert.AreEqual(result, Program.BlackJack(c1, c2));
+        }
+
+        private readonly IEnumerable wordCountData = new List<TestCaseData>()
+        {
+            new TestCaseData(new List<String> { "a" }).Returns(new Dictionary<String, int>() { { "a", 1 } }),
+            new TestCaseData(new List<String> { "a", "A" }).Returns(new Dictionary<String, int>() { { "a", 1 }, { "A", 1 } } ),
+            new TestCaseData(new List<String> { "a", "aa", "aaa" }).Returns(new Dictionary<String, int>() { { "a", 1 }, { "aa", 1 }, { "aaa", 1 } } ),
+            new TestCaseData(new List<String> { }).Returns(new Dictionary<String, int>() { } ),
+            new TestCaseData(new List<String> { "dog", "cat", "cat", "dog", "DOG" }).Returns(new Dictionary<String, int>() { { "dog", 2 }, { "cat", 2 }, { "DOG", 1 } } ),
+            new TestCaseData(new List<String> { "", "", String.Empty }).Returns(new Dictionary<String, int>() { { String.Empty, 3 } } ),
+            new TestCaseData(new List<String> { "\0", "\0" }).Returns(new Dictionary<String, int>() { { "\0", 2 } } ),
+            new TestCaseData(null).Throws(typeof(NullReferenceException))
+        };
+
+        [Test, TestCaseSource("wordCountData")]
+        public Dictionary<String, int> Test_WordCount(List<String> arr)
+        {
+            return Program.WordCount(arr);
         }
     }
 }
