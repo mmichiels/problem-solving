@@ -255,5 +255,15 @@ namespace UnitTestProject1
         {
             Assert.AreEqual(result, Program.Factorial(n));
         }
+
+        [Test]
+        [TestCase(1, new String[] { "1" })]
+        [TestCase(3, new String[] { "1", "2", "Fizz" })]
+        [TestCase(5, new String[] { "1", "2", "Fizz", "4", "Buzz" })]
+        [TestCase(15, new String[] { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz" })]
+        public void Test_FB(int n, String[] result)
+        {
+            Assert.AreEqual(result, Program.FB(n));
+        }
     }
 }

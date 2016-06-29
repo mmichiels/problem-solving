@@ -126,5 +126,14 @@ namespace problem_solving
             // Given n of 1 or more, return the factorial of n, which is n * (n-1) * (n-2) ... 1
             return 0;
         }
+
+        public static List<String> FB(int n)
+        {
+            // Given n, print the numbers from 1 to n as a string to a List of strings, with the following exceptions:
+            // If the number is divisable by 3, replace it with the word "Fizz"
+            // If the number is divisable by 5, replace it with the word "Buzz"
+            // If the number is divisable by both 3 and 5, replace it with the word "FizzBuzz"
+            return null;
+        }
     }
 }
