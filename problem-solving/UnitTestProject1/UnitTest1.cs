@@ -220,6 +220,7 @@ namespace UnitTestProject1
         [TestCase(20, 10, 20)]
         [TestCase(21, 20, 21)]
         [TestCase(18, 24, 18)]
+        [TestCase(Int32.MaxValue, Int32.MaxValue, 0)]
         [TestCase(1, 1, 1)]
         [TestCase(1, Int32.MaxValue, 1)]
         public void Test_BlackJack(int c1, int c2, int result)
