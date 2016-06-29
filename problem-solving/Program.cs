@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace problem_solving
 {
@@ -36,21 +38,21 @@ namespace problem_solving
         {
             // return an array that contains only unique values from the passed in array
             // TODO
-            return new List<int>();
+            return null;
         }
 
         public static IEnumerable<int> GetArrayIntersect(IEnumerable<int> arrA, IEnumerable<int> arrB)
         {
             // return an array that contains all the values that are in array A and array B
             // TODO
-            return new List<int>();
+            return null;
         }
 
         public static IEnumerable<int> GetArrayNotIntersect(IEnumerable<int> arrA, IEnumerable<int> arrB)
         {
             // return an array that contains all the values that are in array A or array B but not in both array A and array B
             // TODO
-            return new List<int>();
+            return null;
         }
 
         public static Boolean HasSum(IEnumerable<int> arr, long target)
@@ -64,7 +66,6 @@ namespace problem_solving
         {
             // Given an array of int values, return their sum. 
             // However, if any of the values is the same as another of the values, it does not count towards the sum.
-
             return 0;
         }
 
@@ -72,7 +73,7 @@ namespace problem_solving
         {
             // return a string that is the original string with each character in the string repeated twice
             // e.g. for input "ABCDE", return "AABBCCDDEE"
-            return "";
+            return null;
         }
 
         public static int CountChars(String s, char c)
@@ -81,7 +82,7 @@ namespace problem_solving
             return 0;
         }
 
-        public static long SumDigits(String s) 
+        public static long SumDigits(String s)
         {
             // return the sum of the digits 0-9 that appear in the string, ignoring all other characters
             return 0;
@@ -103,7 +104,7 @@ namespace problem_solving
             return false;
         }
 
-        public static int BlackJack(int count1, int count2) 
+        public static int BlackJack(int count1, int count2)
         {
             // Given 2 integer values greater than 0, 
             // return whichever value is nearest to 21 without going over. 
