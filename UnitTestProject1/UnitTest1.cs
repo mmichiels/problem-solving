@@ -125,7 +125,7 @@ namespace UnitTestProject1
         [TestCase(new int[] { 1, 2, 3, 4, 5, 5 }, 10)]
         [TestCase(new int[] { Int32.MinValue, Int32.MaxValue }, -1)]
         [TestCase(new int[] { Int32.MinValue, Int32.MaxValue, Int32.MaxValue }, Int32.MinValue)]
-        public void LoneSum(int[] arr, int result)
+        public void Test_LoneSum(int[] arr, int result)
         {
             Assert.AreEqual(result, Program.LoneSum(arr));
         }
@@ -244,6 +244,16 @@ namespace UnitTestProject1
         public Dictionary<String, int> Test_WordCount(List<String> arr)
         {
             return Program.WordCount(arr);
+        }
+
+        [Test]
+        [TestCase(1, 1)]
+        [TestCase(2, 2)]
+        [TestCase(3, 6)]
+        [TestCase(10, 3628800)]
+        public void Test_Factorial(int n, int result)
+        {
+            Assert.AreEqual(result, Program.Factorial(n));
         }
     }
 }

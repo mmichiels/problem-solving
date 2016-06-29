@@ -120,5 +120,11 @@ namespace problem_solving
             // return a dictionary keyed on the string with the count of how many times each string appears in the array
             return null;
         }
+
+        public static int Factorial(int n)
+        {
+            // Given n of 1 or more, return the factorial of n, which is n * (n-1) * (n-2) ... 1
+            return 0;
+        }
     }
 }
