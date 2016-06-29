@@ -85,6 +85,7 @@ namespace problem_solving
         public static long SumDigits(String s)
         {
             // return the sum of the digits 0-9 that appear in the string, ignoring all other characters
+            // e.g. "123" return 6
             return 0;
         }
 
@@ -92,6 +93,7 @@ namespace problem_solving
         {
             // return the sum of the numbers that appear in the string, ignoring all other characters
             // a number is a series of 1 or more digits in a row
+            // e.g. "11 22" returns 33
             return 0;
         }
 
