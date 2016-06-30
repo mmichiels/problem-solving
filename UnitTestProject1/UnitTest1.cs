@@ -228,6 +228,40 @@ namespace UnitTestProject1
             Assert.AreEqual(result, Program.BlackJack(c1, c2));
         }
 
+        [Test]
+        [TestCase(19, 21, 18, 17, 16, 21)]
+        [TestCase(19, 22, 23, 18, 17, 19)]
+        [TestCase(22, 22, 23, 23, 24, 0)]
+        [TestCase(19, 19, 19, 19, 19, 19)]
+        [TestCase(20, 10, 11, 12, 13, 20)]
+        [TestCase(21, 20, 20, 20, 20, 21)]
+        [TestCase(18, 24, 25, 26, 27, 18)]
+        [TestCase(Int32.MaxValue, Int32.MaxValue, Int32.MaxValue, Int32.MaxValue, Int32.MaxValue, 0)]
+        [TestCase(1, 1, 1, 1, 1, 1)]
+        [TestCase(1, Int32.MaxValue, Int32.MaxValue, Int32.MaxValue, Int32.MaxValue, 1)]
+        public void Test_FivePlayerBlackJack(int c1, int c2, int c3, int c4, int c5, int result)
+        {
+            Assert.AreEqual(result, Program.FivePlayerBlackJack(c1, c2, c3, c4, c5));
+        }
+
+        [Test]
+        [TestCase(new int[] { 19, 21, 18, 17, 16, 15, 14, 13 }, 21)]
+        [TestCase(new int[] { 19 }, 19)]
+        [TestCase(new int[] { }, 0)]
+        [TestCase(null, 0, ExpectedException = typeof(ArgumentNullException))]
+        [TestCase(new int[] { 22, 22, 23, 23, 24 }, 0)]
+        [TestCase(new int[] { 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19 }, 19)]
+        [TestCase(new int[] { 20, 10, 11, 12, 13 }, 20)]
+        [TestCase(new int[] { 21, 20, 20, 20, 20 }, 21)]
+        [TestCase(new int[] { 18, 24, 25, 26, 27 }, 18)]
+        [TestCase(new int[] { Int32.MaxValue, Int32.MaxValue, Int32.MaxValue, Int32.MaxValue, Int32.MaxValue }, 0)]
+        [TestCase(new int[] { 1, 1, 1, 1, 1 }, 1)]
+        [TestCase(new int[] { 1, Int32.MaxValue, Int32.MaxValue, Int32.MaxValue, Int32.MaxValue }, 1)]
+        public void Test_NPlayerBlackJack(int[] counts, int result)
+        {
+            Assert.AreEqual(result, Program.NPlayerBlackJack(counts));
+        }
+
         private readonly IEnumerable wordCountData = new List<TestCaseData>()
         {
             new TestCaseData(new List<String> { "a" }).Returns(new Dictionary<String, int>() { { "a", 1 } }),

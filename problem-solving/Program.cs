@@ -114,6 +114,22 @@ namespace problem_solving
             return 0;
         }
 
+        public static int FivePlayerBlackJack(int count1, int count2, int count3, int count4, int count5)
+        {
+            // Given 5 integer values greater than 0, 
+            // return whichever value is nearest to 21 without going over. 
+            // Return 0 if they all go over.
+            return 0;
+        }
+
+        public static int NPlayerBlackJack(IEnumerable<int> counts)
+        {
+            // Given a list of integer values greater than 0, 
+            // return whichever value is nearest to 21 without going over. 
+            // Return 0 if they all go over.
+            return 0;
+        }
+
         public static Dictionary<String, int> WordCount(IEnumerable<String> arr)
         {
             // Given an array of Strings, 
