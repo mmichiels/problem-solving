@@ -200,6 +200,7 @@ namespace UnitTestProject1
         [TestCase("A", "A", true)]
         [TestCase("abcd", "abcd", true)]
         [TestCase("abcd", "abcde", false)]
+        [TestCase("abcde", "abcd", false)]
         [TestCase("abcd", "dcab", true)]
         [TestCase("abcd", "dcababcd", false)]
         [TestCase("abcd", "efgh", false)]
