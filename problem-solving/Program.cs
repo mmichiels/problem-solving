@@ -139,7 +139,7 @@ namespace problem_solving
 
         public static int Factorial(int n)
         {
-            // Given n of 1 or more, return the factorial of n, which is n * (n-1) * (n-2) ... 1
+            // Given n, return the factorial of n, which is n * (n-1) * (n-2) ... 1
             return 0;
         }
 
