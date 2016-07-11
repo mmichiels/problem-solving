@@ -15,44 +15,112 @@ namespace problem_solving
 
         public static long SumArray(IEnumerable<int> arr)
         {
-            // return the sum of all the values in the array
-            // TODO
-            return 0;
+            ValidateArrayNotNull(arr);
+
+            long arraySum = 0;
+            foreach (var arrayInt in arr)
+            {
+                arraySum = arraySum + arrayInt;
+            }
+            return arraySum;
+            //return arr.Sum();
         }
 
         public static long SumArrayOddValues(IEnumerable<int> arr)
         {
-            // return the sum of all the values in the array that are odd
-            // TODO
-            return 0;
+            ValidateArrayNotNull(arr);
+
+            var oddValues = new List<int>();
+            foreach (var arrayInt in arr)
+            {
+                if (arrayInt != 0 && arrayInt%2 != 0)
+                {
+                    oddValues.Add(arrayInt);
+                }
+            }
+
+            return SumArray(oddValues.ToArray());
         }
 
         public static long SumArrayEverySecondValue(IEnumerable<int> arr)
         {
-            // return the sum of every second value in the array. i.e. the 2nd value + the 4th value + the 6th value ...
-            // TODO
-            return 0;
+            ValidateArrayNotNull(arr);
+
+            var everySecondValue = new List<int>();
+            int count = 0;
+            foreach (var arrayInt in arr)
+            {
+                if (count > 0 && count%2 != 0)
+                {
+                    everySecondValue.Add(arrayInt);
+                }
+                count++;
+            }
+
+            return SumArray(everySecondValue.ToArray());
         }
 
         public static IEnumerable<int> GetUniqueValues(IEnumerable<int> arr)
         {
-            // return an array that contains only unique values from the passed in array
-            // TODO
-            return null;
+            ValidateArrayNotNull(arr);
+            var uniqueValues = new List<int>();
+
+            foreach (var arrayInt in arr)
+            {
+                var matchingValues = new List<int>();
+                matchingValues.AddRange(from duplicateInt in uniqueValues where duplicateInt == arrayInt select arrayInt);
+                if (matchingValues.Count == 0)
+                {
+                    uniqueValues.Add(arrayInt);
+                }
+            }
+
+            return uniqueValues;
         }
 
         public static IEnumerable<int> GetArrayIntersect(IEnumerable<int> arrA, IEnumerable<int> arrB)
         {
-            // return an array that contains all the values that are in array A and array B
-            // TODO
-            return null;
+            ValidateArrayNotNull(arrA);
+            ValidateArrayNotNull(arrB);
+
+            var uniqueArrAValues = GetUniqueValues(arrA);
+            var uniqueArrBValues = GetUniqueValues(arrB);
+            var arrayIntersectValues = new List<int>();
+
+            foreach (var arrayAInt in uniqueArrAValues)
+            {
+                var matchingValues = new List<int>();
+                matchingValues.AddRange(from arrayBInt in uniqueArrBValues where arrayBInt == arrayAInt select arrayAInt);
+                if (matchingValues.Count >= 1)
+                {
+                    arrayIntersectValues.Add(arrayAInt);
+                }
+            }
+
+            return arrayIntersectValues;
         }
 
         public static IEnumerable<int> GetArrayNotIntersect(IEnumerable<int> arrA, IEnumerable<int> arrB)
         {
             // return an array that contains all the values that are in array A or array B but not in both array A and array B
-            // TODO
-            return null;
+            ValidateArrayNotNull(arrA);
+            ValidateArrayNotNull(arrB);
+
+            var combinesValues = arrA.ToList();
+            combinesValues.AddRange(arrB.ToList());
+            var uniqueValues = new List<int>();
+
+            foreach (var arrayInt in combinesValues)
+            {
+                var matchingValues = new List<int>();
+                matchingValues.AddRange(from duplicateInt in combinesValues where duplicateInt == arrayInt select arrayInt);
+                if (matchingValues.Count < 2)
+                {
+                    uniqueValues.Add(arrayInt);
+                }
+            }
+
+            return uniqueValues;
         }
 
         public static Boolean HasSum(IEnumerable<int> arr, long target)
@@ -150,6 +218,14 @@ namespace problem_solving
             // If the number is divisable by 5, replace it with the word "Buzz"
             // If the number is divisable by both 3 and 5, replace it with the word "FizzBuzz"
             return null;
+        }
+
+        public static void ValidateArrayNotNull(IEnumerable<int> arr)
+        {
+            if (arr == null)
+            {
+                throw new ArgumentNullException("arr");
+            }           
         }
     }
 }
